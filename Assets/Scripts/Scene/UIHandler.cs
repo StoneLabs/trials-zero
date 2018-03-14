@@ -21,12 +21,19 @@ public class UIHandler : MonoBehaviour
         ui_status_text = ui_status.text;
 	}
     
+    private bool reset_hold = false;
 	void Update()
 	{
         SetTextInfo();
 
-        if (Input.GetKeyDown("r"))
-            ResetBike();
+        if (Input.GetAxis("Reset") == 1)
+        {
+            if (!reset_hold)
+                ResetBike();
+            reset_hold = true;
+        }
+        else
+            reset_hold = false;
 
         sceneManager.bikeManager.SetThrust(Input.GetAxis("Vertical"));
         sceneManager.bikeManager.SetBalance(Input.GetAxis("Horizontal"));
