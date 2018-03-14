@@ -4,24 +4,35 @@ using UnityEngine;
 
 public class BikeManager : MonoBehaviour
 {
-	public float thrust = 0.0f;
-	public float balance = 0.0f;	
-	public bool reverse = false;
-	public bool alive = true;
+	[Header("Bike Parts")]
 
-	[SerializeField]
-	public BikeEngine[] engines;
+	[LabelOverride("Bike Body")]
 	public BikeBody body;
+	
+	[SerializeField]
+	[LabelOverride("Bike Engines")]
+	public BikeEngine[] engines;
 
+	[LabelOverride("Rigidbodies")]
 	public Rigidbody[] rigidbodies;
 
+	[LabelOverride("Rider Mesh")]
 	public MeshRenderer[] riderParts;
+
+	[Header("Bike Behaviour")]
+	public Vector2 impulseRange;
+
+	private float thrust = 0.0f;
+	private float balance = 0.0f;	
+	private bool reverse = false;
+	private bool alive = true;
 
 	void Start () { }
 
 	private void setBikeState(float balance, float thrust, bool reverse)
 	{
 		body.SetBalance(balance);
+		body.SetEngineState(thrust, reverse);
 		foreach (BikeEngine engine in engines) 
 		{
 			engine.SetEngineState(thrust, reverse);
@@ -45,11 +56,12 @@ public class BikeManager : MonoBehaviour
 			renderer.materials[0].color = Color.red;
 		}
 
+		float impulseScale = Random.Range(impulseRange.x, impulseRange.y);
 		setBikeState(0, 0, false);
 		foreach (Rigidbody rigidbody in rigidbodies)
 		{	
 			rigidbody.constraints = RigidbodyConstraints.None;
-			rigidbody.AddForce(Vector3.forward * Random.Range(-2.0f, 2.0f), ForceMode.Impulse);
+			rigidbody.AddForce(Vector3.forward * impulseScale, ForceMode.Impulse);
 		}
 	}
 

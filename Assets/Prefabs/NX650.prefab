@@ -4797,6 +4797,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1535087162867838
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4725379584049840}
+  - component: {fileID: 108601371476151096}
+  m_Layer: 8
+  m_Name: Point light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1535161720589448
 GameObject:
   m_ObjectHideFlags: 1
@@ -14591,6 +14607,7 @@ Transform:
   - {fileID: 4726040765822694}
   - {fileID: 4024664973115792}
   - {fileID: 4687641353262074}
+  - {fileID: 4725379584049840}
   m_Father: {fileID: 4742645834285350}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15544,6 +15561,19 @@ Transform:
   m_Father: {fileID: 4627263094939636}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4725379584049840
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1535087162867838}
+  m_LocalRotation: {x: 0, y: -0.9417938, z: 0.3361913, w: 0}
+  m_LocalPosition: {x: 0, y: -0.037, z: -0.08}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4607352256632512}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 39.29, y: -180, z: 0}
 --- !u!4 &4725417576503284
 Transform:
   m_ObjectHideFlags: 1
@@ -30721,6 +30751,42 @@ ConstantForce:
   m_RelativeForce: {x: 0, y: 0, z: 0}
   m_Torque: {x: 0, y: 0, z: 0}
   m_RelativeTorque: {x: 0, y: 0, z: 0}
+--- !u!108 &108601371476151096
+Light:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1535087162867838}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 0
+  m_Color: {r: 0.90344834, g: 1, b: 0, a: 1}
+  m_Intensity: 1
+  m_Range: 5
+  m_SpotAngle: 99
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 0
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!114 &114199798507920462
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -30744,14 +30810,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e7e953a4e3b546a790b0de43f0b59d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 0
-  balance: 0
-  reverse: 0
-  alive: 1
+  body: {fileID: 114698366946856142}
   engines:
   - {fileID: 114668956875042364}
   - {fileID: 114652086801455232}
-  body: {fileID: 114698366946856142}
   rigidbodies:
   - {fileID: 54857473766564918}
   - {fileID: 54526014829084914}
@@ -30762,6 +30824,7 @@ MonoBehaviour:
   - {fileID: 23582224069438914}
   - {fileID: 23620829206035624}
   - {fileID: 23129703169560106}
+  impulseRange: {x: -3, y: 3}
 --- !u!114 &114652086801455232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -30773,10 +30836,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49a2c163910c4f6699a2c931cf1114e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint: {fileID: 153983771514181782}
   inverse: 1
-  targetVelocity: 100
-  thrustLimit: 3
+  joint: {fileID: 153983771514181782}
+  velocityCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: -1
+      value: 25
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 100
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  thrustCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: -1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114668956875042364
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -30788,10 +30897,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49a2c163910c4f6699a2c931cf1114e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joint: {fileID: 153647333728128936}
   inverse: 1
-  targetVelocity: 100
-  thrustLimit: 3
+  joint: {fileID: 153647333728128936}
+  velocityCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: -1
+      value: 25
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 100
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  thrustCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: -1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114698366946856142
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -30803,11 +30958,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9a3345aa2dd45989c32e2f5028cfaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conf: {fileID: 75105312239908754}
-  inverse: 1
-  velocity: 450
-  target: 0
-  current: 0
+  constantForce: {fileID: 75105312239908754}
+  balanceInverse: 0
+  balanceForceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 500
+      inSlope: 500
+      outSlope: 500
+      tangentMode: 34
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  rotationInverse: 1
+  rotationForceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: -1
+      value: 40
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 500
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!136 &136624156199028952
 CapsuleCollider:
   m_ObjectHideFlags: 1
