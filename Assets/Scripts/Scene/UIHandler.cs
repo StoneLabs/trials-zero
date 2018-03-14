@@ -69,4 +69,9 @@ public class UIHandler : MonoBehaviour
             .Replace("{KMH}", kmhText)
             .Replace("{ALV}", alive.ToString());
     }
+
+    public void SelectLevel(int index)
+    {
+        Application.LoadLevel(index);
+    }
 }

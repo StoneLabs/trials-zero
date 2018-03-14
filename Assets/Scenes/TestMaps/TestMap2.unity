@@ -326,30 +326,35 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114186114536798796, guid: 46ea61f4f5ecb4c4b8a8894aa3f6f354,
+    - target: {fileID: 224949112910645234, guid: 46ea61f4f5ecb4c4b8a8894aa3f6f354,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224949112910645234, guid: 46ea61f4f5ecb4c4b8a8894aa3f6f354,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224307682115772372, guid: 46ea61f4f5ecb4c4b8a8894aa3f6f354,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224307682115772372, guid: 46ea61f4f5ecb4c4b8a8894aa3f6f354,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114118531580216330, guid: 46ea61f4f5ecb4c4b8a8894aa3f6f354,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 560689798}
-    - target: {fileID: 224949112910645234, guid: 46ea61f4f5ecb4c4b8a8894aa3f6f354,
+    - target: {fileID: 114118531580216330, guid: 46ea61f4f5ecb4c4b8a8894aa3f6f354,
         type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224949112910645234, guid: 46ea61f4f5ecb4c4b8a8894aa3f6f354,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224307682115772372, guid: 46ea61f4f5ecb4c4b8a8894aa3f6f354,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224307682115772372, guid: 46ea61f4f5ecb4c4b8a8894aa3f6f354,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46ea61f4f5ecb4c4b8a8894aa3f6f354, type: 2}
