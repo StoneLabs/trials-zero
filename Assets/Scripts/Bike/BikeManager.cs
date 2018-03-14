@@ -47,7 +47,10 @@ public class BikeManager : MonoBehaviour
 
 		setBikeState(0, 0, false);
 		foreach (Rigidbody rigidbody in rigidbodies)
+		{	
 			rigidbody.constraints = RigidbodyConstraints.None;
+			rigidbody.AddForce(Vector3.forward * Random.Range(-2.0f, 2.0f), ForceMode.Impulse);
+		}
 	}
 
 	public void SetThrust(float thr) 
