@@ -13,6 +13,13 @@ public class UIHandler : MonoBehaviour
     public Slider ui_balance;
     public Toggle ui_mobile;
 
+	public void Start()
+	{
+		if (sceneManager == null)
+			sceneManager = GameObject.Find("/SceneManager")
+									 .GetComponent<SceneManager>();
+	}
+    
 	void Update()
 	{
 		if (overrideWithKeyboardInput = !ui_mobile.isOn)

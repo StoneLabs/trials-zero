@@ -30805,7 +30805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conf: {fileID: 75105312239908754}
   inverse: 1
-  velocity: 400
+  velocity: 450
   target: 0
   current: 0
 --- !u!136 &136624156199028952
@@ -30951,7 +30951,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000029802319, y: 0.56821024, z: -0.000003606081}
+  m_ConnectedAnchor: {x: -0.000000029802319, y: 0.56821024, z: -0.0000036656857}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -31045,7 +31045,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0004414022, y: 0.7004545, z: -0.34800005}
+  m_ConnectedAnchor: {x: 0.0004414022, y: 0.7004545, z: -0.348}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -31139,7 +31139,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00025420278, y: 0.000040373932, z: 0.00008501106}
+  m_ConnectedAnchor: {x: -0.00025422825, y: 0.000040320716, z: 0.00008501957}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0

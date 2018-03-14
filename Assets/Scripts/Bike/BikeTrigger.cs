@@ -8,6 +8,7 @@ public class BikeTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other) 
 	{
-		bikeManager.Die();
+		if (other.isTrigger == false)
+			bikeManager.Die();
     }
 }
