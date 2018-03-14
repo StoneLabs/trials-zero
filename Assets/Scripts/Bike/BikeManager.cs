@@ -26,6 +26,7 @@ public class BikeManager : MonoBehaviour
 	private float balance = 0.0f;	
 	private bool reverse = false;
 	private bool alive = true;
+	public bool isAlive() {return alive;}
 
 	void Start () { }
 

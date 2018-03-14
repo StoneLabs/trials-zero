@@ -30966,15 +30966,21 @@ MonoBehaviour:
     - serializedVersion: 2
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: 6623.6533
+      outSlope: 6623.6533
       tangentMode: 0
     - serializedVersion: 2
-      time: 1
-      value: 500
-      inSlope: 500
-      outSlope: 500
-      tangentMode: 34
+      time: 0.4246136
+      value: 527.62103
+      inSlope: -571.13464
+      outSlope: -571.13464
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.9958191
+      value: 550
+      inSlope: 51.565258
+      outSlope: 51.565258
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
@@ -30996,7 +31002,7 @@ MonoBehaviour:
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: 500
+      value: 450
       inSlope: 0
       outSlope: 0
       tangentMode: 0
