@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Script that holds references to the most important objects in the scene
+ */
 public class SceneManager : MonoBehaviour 
 {
 	// A prefab of the bike
