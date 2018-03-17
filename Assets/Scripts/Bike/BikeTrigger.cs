@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Simple script to call respawn once any collider enters the bike driver trigger
+ */
 public class BikeTrigger : MonoBehaviour 
 {
 	public BikeManager bikeManager;

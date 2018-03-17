@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/* UI Class to manage user input via keyboard or through the GUI.
+ */
 public class UIHandler : MonoBehaviour
 {
     public SceneManager sceneManager;
 
+    // References to the GUI elements
     public Slider ui_throttle;
     public Slider ui_balance;
     public Text ui_status;
@@ -18,14 +21,17 @@ public class UIHandler : MonoBehaviour
 			sceneManager = GameObject.Find("/SceneManager")
 									 .GetComponent<SceneManager>();
         
+        // Save current status text because it is later overriden in SetTextInfo().
         ui_status_text = ui_status.text;
 	}
     
     private bool reset_hold = false;
 	void Update()
 	{
+        // Set debug information
         SetTextInfo();
 
+        // If the reset axis is pressed this frame (changed event)
         if (Input.GetAxis("Reset") == 1)
         {
             if (!reset_hold)
@@ -35,13 +41,16 @@ public class UIHandler : MonoBehaviour
         else
             reset_hold = false;
 
+        // Apply user input
         sceneManager.bikeManager.SetThrust(Input.GetAxis("Vertical"));
         sceneManager.bikeManager.SetBalance(Input.GetAxis("Horizontal"));
         
+        // And visualize user input
         ui_throttle.value = Input.GetAxis("Vertical");
         ui_balance.value = Input.GetAxis("Horizontal");
 	}
 
+    // Reset all GUI elements and trigger bike respawn.
     public void ResetBike()
     {
         ui_throttle.value = 0;
@@ -49,6 +58,13 @@ public class UIHandler : MonoBehaviour
         sceneManager.Respawn();
     }
 
+    // Set the debug information in ui_status
+    // The following labels are replaced as follows:
+    // {FPS}: Current frame rate and update duration in ms
+    // {TGR}: Current target frame rate and VSYNC status
+    // {MPS}: Speed in meters/units per second
+    // {KMH}: Speed in kmh
+    // {ALV}: Whether the player is currently alive
     public void SetTextInfo()
     {
 		float msec = Time.smoothDeltaTime * 1000.0f;
@@ -77,6 +93,7 @@ public class UIHandler : MonoBehaviour
             .Replace("{ALV}", alive.ToString());
     }
 
+    // Used by UI elements to change the current scene. 
     public void SelectLevel(int index)
     {
         Application.LoadLevel(index);
