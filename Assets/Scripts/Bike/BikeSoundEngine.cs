@@ -4,14 +4,24 @@ using UnityEngine;
 
 public class BikeSoundEngine : BikeEngine 
 {
+	[LabelOverride("Audio Source")]
     public AudioSource bodyAudioSource = null;
 
+
+	[Header("Sound Files")]
+
+	[LabelOverride("Idle Audio")]
     public AudioClip idle;
-    public AudioClip acc;
-    public AudioClip shift1;
-    public AudioClip shift2;
-    public AudioClip unshift;
+
+	[LabelOverride("Loop Audio")]
     public AudioClip loop;
+
+
+	[Header("Audio settings")]
+
+	[LabelOverride("Pitch Curve")]
+    public AnimationCurve pitchCurve = AnimationCurve.Linear(0, 0.5f, 1, 1);
+
 
     public override void SetEngineState ( float thrust, bool reverse ) 
     {
@@ -19,7 +29,7 @@ public class BikeSoundEngine : BikeEngine
             playAudio(idle, true, 1, 1);
 
         if ( thrust > 0)
-            playAudio(loop, true, 1, thrust);
+            playAudio(loop, true, 1, pitchCurve.Evaluate(thrust));
     }
 
     private void playAudio(AudioClip clip, bool loop, float volume = 1, float pitch = 1)

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4442113, g: 0.493652, b: 0.57304543, a: 1}
+  m_IndirectSpecularColor: {r: NaN, g: NaN, b: NaN, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -701,50 +701,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 153731080375068856, guid: a1f98673feb3a4c1fbfe0bd080de0dba,
+    - target: {fileID: 114239493324788854, guid: a1f98673feb3a4c1fbfe0bd080de0dba,
         type: 2}
-      propertyPath: m_ConnectedAnchor.z
-      value: -0.348
+      propertyPath: pitchCurve.m_Curve.Array.data[0].value
+      value: 0.6
       objectReference: {fileID: 0}
-    - target: {fileID: 153647333728128936, guid: a1f98673feb3a4c1fbfe0bd080de0dba,
+    - target: {fileID: 82494106902768232, guid: a1f98673feb3a4c1fbfe0bd080de0dba,
         type: 2}
-      propertyPath: m_ConnectedAnchor.y
-      value: 0.56821024
-      objectReference: {fileID: 0}
-    - target: {fileID: 153647333728128936, guid: a1f98673feb3a4c1fbfe0bd080de0dba,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.z
-      value: -0.0000036656857
-      objectReference: {fileID: 0}
-    - target: {fileID: 153099376928913296, guid: a1f98673feb3a4c1fbfe0bd080de0dba,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.z
-      value: -0.319376
-      objectReference: {fileID: 0}
-    - target: {fileID: 153983771514181782, guid: a1f98673feb3a4c1fbfe0bd080de0dba,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.x
-      value: -0.00025422825
-      objectReference: {fileID: 0}
-    - target: {fileID: 153983771514181782, guid: a1f98673feb3a4c1fbfe0bd080de0dba,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.y
-      value: 0.000040320716
-      objectReference: {fileID: 0}
-    - target: {fileID: 153983771514181782, guid: a1f98673feb3a4c1fbfe0bd080de0dba,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.z
-      value: 0.00008501957
-      objectReference: {fileID: 0}
-    - target: {fileID: 153731080375068856, guid: a1f98673feb3a4c1fbfe0bd080de0dba,
-        type: 2}
-      propertyPath: m_YDrive.positionSpring
-      value: 8000
-      objectReference: {fileID: 0}
-    - target: {fileID: 153731080375068856, guid: a1f98673feb3a4c1fbfe0bd080de0dba,
-        type: 2}
-      propertyPath: m_YDrive.positionDamper
-      value: 1000
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1f98673feb3a4c1fbfe0bd080de0dba, type: 2}
