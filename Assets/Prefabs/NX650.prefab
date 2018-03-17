@@ -30932,50 +30932,50 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0.9
+      value: 0.8
+      inSlope: 0.0230175
+      outSlope: 0.0230175
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.16960311
+      value: 1.0741932
+      inSlope: 0.68962574
+      outSlope: 0.68962574
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.80321574
+      value: 1.2643243
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.30098823
-      value: 1.1444154
-      inSlope: 0.6081295
-      outSlope: 0.6081295
+      time: 1
+      value: 1.25
+      inSlope: -0.010466073
+      outSlope: -0.010466073
       tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  volumeR: 0.5
+  pitchCurveR:
+    serializedVersion: 2
+    m_Curve:
     - serializedVersion: 2
-      time: 0.6880174
-      value: 1.3511803
-      inSlope: 0.0037952615
-      outSlope: 0.0037952615
+      time: 0
+      value: 0.8
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: 1.3
+      value: 0.9
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  volumeR: 0.6
-  pitchCurveR:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0.5
-      inSlope: 0
-      outSlope: 0.5
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 1
-      inSlope: 0.5
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &114531239527149968
 MonoBehaviour:
   m_ObjectHideFlags: 1
