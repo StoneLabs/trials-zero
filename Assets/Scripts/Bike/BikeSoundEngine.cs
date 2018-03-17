@@ -20,107 +20,61 @@ public class BikeSoundEngine : BikeEngine
 
         if (this.bodyAudioSource == null )
         {
-
             this.thrustDiff = thrust;
             this.playIdle( );
-
         }
 
         if ( this.thrustDiff != thrust )
         {
-
             this.thrustDiff = thrust;
-            
             this.isPlaying = false;
-
         }
 
         if (thrust == 0)
         {
-
             this.playIdle( );
             return;
-
         }
 
         this.bodyAudioSource.volume = thrust;
         this.bodyAudioSource.pitch = thrust;
 
         if ( thrust > .5 )
-        {
-
             this.playLoop( );
-
-        }else
-        {
-
+        else
             this.playAcc( thrust );
-
-        }
     }
 
     private void playIdle ( )
     {
-        if ( this.isPlaying )
-        {
-
-            return;
-
-        }
-
-        this.bodyAudioSource.volume = 1;
-
-        this.bodyAudioSource.clip = this.idle;
-
-        this.bodyAudioSource.pitch = 1;
-
-        this.bodyAudioSource.loop = true;
-
-        this.bodyAudioSource.Play( );
-
-        this.isPlaying = true;
-
+        playAudio(idle, true, 1, 1);
     }
 
     private void playAcc ( float thrust )
     {
-        if ( this.isPlaying )
-        {
-
-            return;
-
-        }
-
-        this.bodyAudioSource.clip = this.acc;
-
-        this.bodyAudioSource.loop = true;
-
-        this.bodyAudioSource.Play( );
-
-        this.isPlaying = true;
-
+        playAudio(acc, false, null, null);
     }
 
     private void playLoop ( )
     {
+        playAudio(loop, true, null, 1);
+    }
 
+    private void playAudio(AudioClip clip, bool loop, float? volume = null, float? pitch = null)
+    {
         if ( this.isPlaying )
-        {
-
             return;
 
-        }
+        this.bodyAudioSource.clip = clip;
+        this.bodyAudioSource.loop = loop;
         
-        this.bodyAudioSource.clip = this.loop;
-
-        this.bodyAudioSource.loop = true;
-
-        this.bodyAudioSource.pitch = 1;
+        if (pitch != null)
+            this.bodyAudioSource.pitch = pitch ?? 1;
+        if (volume != null)
+            this.bodyAudioSource.volume = volume ?? 1;
 
         this.bodyAudioSource.Play( );
-
         this.isPlaying = true;
-
     }
 
 }
