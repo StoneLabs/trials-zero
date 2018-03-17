@@ -13,68 +13,26 @@ public class BikeSoundEngine : BikeEngine
     public AudioClip unshift;
     public AudioClip loop;
 
-    private bool isPlaying = false;
-    private float thrustDiff = 0;
-
-    public override void SetEngineState ( float thrust, bool reverse ) {
-
-        if (this.bodyAudioSource == null )
-        {
-            this.thrustDiff = thrust;
-            this.playIdle( );
-        }
-
-        if ( this.thrustDiff != thrust )
-        {
-            this.thrustDiff = thrust;
-            this.isPlaying = false;
-        }
-
+    public override void SetEngineState ( float thrust, bool reverse ) 
+    {
         if (thrust == 0)
-        {
-            this.playIdle( );
-            return;
-        }
+            playAudio(idle, true, 1, 1);
 
-        this.bodyAudioSource.volume = thrust;
-        this.bodyAudioSource.pitch = thrust;
-
-        if ( thrust > .5 )
-            this.playLoop( );
-        else
-            this.playAcc( thrust );
+        if ( thrust > 0)
+            playAudio(loop, true, 1, thrust);
     }
 
-    private void playIdle ( )
+    private void playAudio(AudioClip clip, bool loop, float volume = 1, float pitch = 1)
     {
-        playAudio(idle, true, 1, 1);
-    }
-
-    private void playAcc ( float thrust )
-    {
-        playAudio(acc, false, null, null);
-    }
-
-    private void playLoop ( )
-    {
-        playAudio(loop, true, null, 1);
-    }
-
-    private void playAudio(AudioClip clip, bool loop, float? volume = null, float? pitch = null)
-    {
-        if ( this.isPlaying )
-            return;
-
-        this.bodyAudioSource.clip = clip;
-        this.bodyAudioSource.loop = loop;
+        this.bodyAudioSource.pitch = pitch;
+        this.bodyAudioSource.volume = volume;
         
-        if (pitch != null)
-            this.bodyAudioSource.pitch = pitch ?? 1;
-        if (volume != null)
-            this.bodyAudioSource.volume = volume ?? 1;
-
-        this.bodyAudioSource.Play( );
-        this.isPlaying = true;
+        if (this.bodyAudioSource.clip != clip)
+        {
+            this.bodyAudioSource.clip = clip;
+            this.bodyAudioSource.loop = loop;
+            this.bodyAudioSource.Play();
+        }
     }
 
 }
