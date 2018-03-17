@@ -19,17 +19,41 @@ public class BikeSoundEngine : BikeEngine
 
 	[Header("Audio settings")]
 
+	[LabelOverride("Volume Neutral")]
+    [Range(0, 1)]
+    public float volume0 = 1.0f;
+
+    [Space(10)]
+
+	[LabelOverride("Volume")]
+    [Range(0, 1)]
+    public float volume1 = 1.0f;
+
 	[LabelOverride("Pitch Curve")]
-    public AnimationCurve pitchCurve = AnimationCurve.Linear(0, 0.5f, 1, 1);
+    public AnimationCurve pitchCurve1 = AnimationCurve.Linear(0, 0.5f, 1, 1);
+    
+    [Space(10)]
+
+	[LabelOverride("Volume Reverse")]
+    [Range(0, 1)]
+    public float volumeR = 1.0f;
+
+	[LabelOverride("Pitch Curve Reverse")]
+    public AnimationCurve pitchCurveR = AnimationCurve.Linear(0, 0.5f, 1, 1);
 
 
     public override void SetEngineState ( float thrust, bool reverse ) 
     {
+        reverse = reverse ^ inverse;
+
         if (thrust == 0)
-            playAudio(idle, true, 1, 1);
+            playAudio(idle, true, volume0, 1);
 
         if ( thrust > 0)
-            playAudio(loop, true, 1, pitchCurve.Evaluate(thrust));
+            if (reverse)
+                playAudio(loop, true, volumeR, pitchCurveR.Evaluate(thrust));
+            else
+                playAudio(loop, true, volume1, pitchCurve1.Evaluate(thrust));
     }
 
     private void playAudio(AudioClip clip, bool loop, float volume = 1, float pitch = 1)

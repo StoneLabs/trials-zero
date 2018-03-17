@@ -30921,28 +30921,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b31b61d3d7c6b4f901d3782013fea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inverse: 1
+  inverse: 0
   bodyAudioSource: {fileID: 82494106902768232}
   idle: {fileID: 8300000, guid: bc3cfa4c49927804084beaefa740b329, type: 3}
   loop: {fileID: 8300000, guid: 3d83a2fc28a14ca4bb903e800881e539, type: 3}
-  pitchCurve:
+  volume0: 0.3
+  volume1: 0.7
+  pitchCurve1:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0.6
+      value: 0.9
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
+      time: 0.30098823
+      value: 1.1444154
+      inSlope: 0.6081295
+      outSlope: 0.6081295
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.6880174
+      value: 1.3511803
+      inSlope: 0.0037952615
+      outSlope: 0.0037952615
+      tangentMode: 0
+    - serializedVersion: 2
       time: 1
-      value: 1
+      value: 1.3
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  volumeR: 0.6
+  pitchCurveR:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.5
+      inSlope: 0
+      outSlope: 0.5
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 0.5
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114531239527149968
 MonoBehaviour:
   m_ObjectHideFlags: 1

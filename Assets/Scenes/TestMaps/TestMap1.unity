@@ -701,16 +701,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114239493324788854, guid: a1f98673feb3a4c1fbfe0bd080de0dba,
-        type: 2}
-      propertyPath: pitchCurve.m_Curve.Array.data[0].value
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 82494106902768232, guid: a1f98673feb3a4c1fbfe0bd080de0dba,
-        type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1f98673feb3a4c1fbfe0bd080de0dba, type: 2}
   m_IsPrefabParent: 0
