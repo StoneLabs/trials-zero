@@ -2,21 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BikeSoundEngine : BikeEngine {
+public class BikeSoundEngine : BikeEngine 
+{
+    public AudioSource bodyAudioSource = null;
 
-    public AudioSource idle;
-    public AudioSource acc;
-    public AudioSource shift1;
-    public AudioSource shift2;
-    public AudioSource unshift;
-    public AudioSource loop;
-
-    public BikeManager bikeManager;
-
-    private AudioSource bodyAudioSource = null;
+    public AudioClip idle;
+    public AudioClip acc;
+    public AudioClip shift1;
+    public AudioClip shift2;
+    public AudioClip unshift;
+    public AudioClip loop;
 
     private bool isPlaying = false;
-
     private float thrustDiff = 0;
 
     public override void SetEngineState ( float thrust, bool reverse ) {
@@ -24,7 +21,6 @@ public class BikeSoundEngine : BikeEngine {
         if (this.bodyAudioSource == null )
         {
 
-            this.bodyAudioSource = this.bikeManager.body.gameObject.AddComponent<AudioSource>( );
             this.thrustDiff = thrust;
             this.playIdle( );
 
@@ -74,7 +70,7 @@ public class BikeSoundEngine : BikeEngine {
 
         this.bodyAudioSource.volume = 1;
 
-        this.bodyAudioSource.clip = this.idle.clip;
+        this.bodyAudioSource.clip = this.idle;
 
         this.bodyAudioSource.pitch = 1;
 
@@ -95,7 +91,7 @@ public class BikeSoundEngine : BikeEngine {
 
         }
 
-        this.bodyAudioSource.clip = this.acc.clip;
+        this.bodyAudioSource.clip = this.acc;
 
         this.bodyAudioSource.loop = true;
 
@@ -115,7 +111,7 @@ public class BikeSoundEngine : BikeEngine {
 
         }
         
-        this.bodyAudioSource.clip = this.loop.clip;
+        this.bodyAudioSource.clip = this.loop;
 
         this.bodyAudioSource.loop = true;
 
