@@ -51,9 +51,6 @@ public class BikeSimpleSoundEngine : BikeEngine
 
     public override void SetEngineState ( float thrust, bool reverse ) 
     {
-        //Apply engine inverse from base class
-        reverse = reverse ^ inverse;
-
         //If no "thrust" is given play the idle sound
         if (thrust == 0)
             playAudio(idle, true, volume0, 1);
