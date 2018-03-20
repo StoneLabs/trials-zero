@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Script that holds reference to all important parts of the bike.
+ * It also takes thrust and balance input and sets the engines accordingly.
+ */
 public class BikeManager : MonoBehaviour
 {
+	//Bike part references
 	[Header("Bike Parts")]
 
 	[LabelOverride("Bike Body")]
@@ -20,8 +24,11 @@ public class BikeManager : MonoBehaviour
 	public MeshRenderer[] riderParts;
 
 	[Header("Bike Behaviour")]
+	// Random impulse applied on death to increase the
+	// chance of falling along the z axis.
 	public Vector2 impulseRange;
 
+	// Current bike state
 	private float thrust = 0.0f;
 	private float balance = 0.0f;	
 	private bool reverse = false;
@@ -32,6 +39,7 @@ public class BikeManager : MonoBehaviour
 
 	private void setBikeState(float balance, float thrust, bool reverse)
 	{
+		// Apply thrust and balance to all engines
 		body.SetBalance(balance);
 		body.SetEngineState(thrust, reverse);
 		foreach (BikeEngine engine in engines) 
@@ -44,19 +52,23 @@ public class BikeManager : MonoBehaviour
 	{
 		if (alive)
 		{
+			// Apply thrust and balance to all engines
 			setBikeState(this.balance, this.thrust, this.reverse);
 		}
 	}
 
+	// Public function to kill the driver
 	public void Die()
 	{
 		this.alive = false;
 			
+		// Change the driver color to red
 		foreach (MeshRenderer renderer in riderParts)
 		{
 			renderer.materials[0].color = Color.red;
 		}
 
+		//Apply impulse in range
 		float impulseScale = Random.Range(impulseRange.x, impulseRange.y);
 		setBikeState(0, 0, false);
 		foreach (Rigidbody rigidbody in rigidbodies)
@@ -66,6 +78,7 @@ public class BikeManager : MonoBehaviour
 		}
 	}
 
+	// Public function to set current vike thrust (in range -1 to 1)
 	public void SetThrust(float thr) 
 	{
 		if (thr >= 0 && thr <= 1)
@@ -79,5 +92,6 @@ public class BikeManager : MonoBehaviour
 			this.thrust = -thr; 
 		}
 	}
+	// Public function to set balance (in range -1 to 1)
 	public void SetBalance(float bal) { this.balance = bal; }
 }
