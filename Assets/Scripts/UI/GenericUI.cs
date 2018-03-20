@@ -7,7 +7,7 @@ using UnityEngine;
  */
 public class GenericUI : MonoBehaviour 
 {
-    // Used by UI elements to change the current scene. 
+    // Used by UI elements to change the current scene. TODO: rename to LoadLevel to be more descriptive
     public void SelectLevel(int index)
     {
         Application.LoadLevel(index);
@@ -17,5 +17,10 @@ public class GenericUI : MonoBehaviour
     public void SelectLevel(string index)
     {
         Application.LoadLevel(index);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
