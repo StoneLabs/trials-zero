@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 /* UI Class to manage user input via keyboard or through the GUI.
  */
-public class UIHandler : MonoBehaviour
+public class IngameUI : GenericUI
 {
     public SceneManager sceneManager;
 
@@ -91,11 +91,5 @@ public class UIHandler : MonoBehaviour
             .Replace("{MPS}", mpsText)
             .Replace("{KMH}", kmhText)
             .Replace("{ALV}", alive.ToString());
-    }
-
-    // Used by UI elements to change the current scene. 
-    public void SelectLevel(int index)
-    {
-        Application.LoadLevel(index);
     }
 }
