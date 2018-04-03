@@ -15,6 +15,8 @@ using System.Collections;
 /// </version>
 public class GizmoTranslateScript : MonoBehaviour {
 
+    public float scaleFactor = 0.3f;
+
     /// <summary>
     ///     X axis of gizmo
     /// </summary>
@@ -54,12 +56,23 @@ public class GizmoTranslateScript : MonoBehaviour {
         // Set the same position for the target and the gizmo
         transform.position = translateTarget.transform.position;
         transform.rotation = translateTarget.transform.rotation;
+        transform.localScale = translateTarget.transform.localScale * scaleFactor;
     }
 
     /// <summary>
     ///     Once per frame
     /// </summary>
-    public void Update() {
+    public void Update() 
+    {
+        // Calculate angle between arrow and camera rotation to flip movement while moving from angles > 180
+        float angleXY = Camera.main.transform.eulerAngles.y - xAxisObject.transform.eulerAngles.y;
+        float factorXY = Mathf.Sin((Mathf.PI / 180) * angleXY); // factor for x axis (regarding y rotation)
+
+        float angleZY = zAxisObject.transform.eulerAngles.y - Camera.main.transform.eulerAngles.y;
+        float factorZY = Mathf.Sin((Mathf.PI / 180) * angleZY); // factor for z axis (regarding y rotation)
+
+        //No correction for Y axis in necessary since we cant tilt the camera on the Z axis.
+
         for (int i = 0; i < 3; i++) {
             if (Input.GetMouseButton(0) && detectors[i].pressing) {
 
@@ -79,18 +92,15 @@ public class GizmoTranslateScript : MonoBehaviour {
                             if (detectors[i].pressingPlane) {
                                 float deltaY = Input.GetAxis("Mouse Y") * (Time.deltaTime * distance);
                                 offset = Vector3.up * deltaY;
-                                offset = new Vector3(0.0f, offset.y, 0.0f);
                                 translateTarget.transform.Translate(offset);
 
                                 float deltaZ = Input.GetAxis("Mouse X") * (Time.deltaTime * distance);
-                                offset = Vector3.forward * deltaZ;
-                                offset = new Vector3(0.0f, 0.0f, offset.z);
+                                offset = Vector3.forward * deltaZ * factorZY;
                                 translateTarget.transform.Translate(offset);
 
                             } else {
                                 float delta = Input.GetAxis("Mouse X") * (Time.deltaTime * distance);
-                                offset = Vector3.left * delta;
-                                offset = new Vector3(offset.x, 0.0f, 0.0f);
+                                offset = Vector3.left * delta * factorXY;
                                 translateTarget.transform.Translate(offset);
                             }
                         }
@@ -99,16 +109,16 @@ public class GizmoTranslateScript : MonoBehaviour {
                     // Y Axis
                     case 1:
                         {
-                            // If the user is pressing the plane, move along X and Z, else just move along X
-
+                            // If the user is pressing the plane, move along X and Z, else just move along Y
+                            // Todo this one is still terribly buggy when moved from different angles!
                             if (detectors[i].pressingPlane) {
                                 float deltaX = Input.GetAxis("Mouse X") * (Time.deltaTime * distance);
-                                offset = Vector3.left * deltaX;
+                                offset = Vector3.left * deltaX * -1;
                                 offset = new Vector3(offset.x, 0.0f, 0.0f);
                                 translateTarget.transform.Translate(offset);
 
                                 float deltaZ = Input.GetAxis("Mouse Y") * (Time.deltaTime * distance);
-                                offset = Vector3.forward * deltaZ;
+                                offset = Vector3.forward * deltaZ * -1;
                                 offset = new Vector3(0.0f, 0.0f, -offset.z);
                                 translateTarget.transform.Translate(offset);
 
@@ -128,7 +138,7 @@ public class GizmoTranslateScript : MonoBehaviour {
 
                             if (detectors[i].pressingPlane) {
                                 float deltaX = Input.GetAxis("Mouse X") * (Time.deltaTime * distance);
-                                offset = Vector3.left * deltaX;
+                                offset = Vector3.left * deltaX * factorXY;
                                 offset = new Vector3(offset.x, 0.0f, 0.0f);
                                 translateTarget.transform.Translate(offset);
 
@@ -139,7 +149,7 @@ public class GizmoTranslateScript : MonoBehaviour {
 
                             } else {
                                 float delta = Input.GetAxis("Mouse X") * (Time.deltaTime * distance);
-                                offset = Vector3.forward * delta;
+                                offset = Vector3.forward * delta * factorZY;
                                 offset = new Vector3(0.0f, 0.0f, offset.z);
                                 translateTarget.transform.Translate(offset);
                             }

@@ -19,6 +19,7 @@ public class GizmoScaleScript : MonoBehaviour {
     ///     Scale speed scalar
     /// </summary>
     public float scaleSpeed = 7.5f;
+    public float scaleFactor = 0.3f;
 
     /// <summary>
     ///     X handle of gizmo
@@ -85,6 +86,7 @@ public class GizmoScaleScript : MonoBehaviour {
         // Set the same position for the target and the gizmo
         transform.position = scaleTarget.transform.position;
         transform.rotation = scaleTarget.transform.rotation;
+        transform.localScale = scaleTarget.transform.localScale * scaleFactor;
     }
 
     /// <summary>

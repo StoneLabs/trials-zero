@@ -617,7 +617,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1669192948870534}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.00000016292068}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
@@ -768,7 +768,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1819408222633650}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.00000016292068}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
@@ -2297,6 +2297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cad78b6a2f1872f4c8565695650c840d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scaleFactor: 0.3
   xAxisObject: {fileID: 1668556579187202}
   yAxisObject: {fileID: 1083448535140856}
   zAxisObject: {fileID: 1734014419751568}
@@ -2313,6 +2314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 75
+  scaleFactor: 1
   xTorus: {fileID: 1809187175841610}
   yTorus: {fileID: 1593375774225688}
   zTorus: {fileID: 1644899287397268}
@@ -2457,6 +2459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   label_mode: {fileID: 0}
+  label_target: {fileID: 0}
   swapkey_mode: 32
   layerMask_editable:
     serializedVersion: 2
@@ -2471,7 +2474,7 @@ MonoBehaviour:
   gizmoScale: {fileID: 4030607702826310}
   gizmoScaleScript: {fileID: 114982521530160230}
   target: {fileID: 0}
-  mode: 0
+  mode: 1
 --- !u!114 &114978426127183884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2505,6 +2508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaleSpeed: 7.5
+  scaleFactor: 0.3
   xHandle: {fileID: 1201865635523070}
   yHandle: {fileID: 1093925181285176}
   zHandle: {fileID: 1975688013156568}

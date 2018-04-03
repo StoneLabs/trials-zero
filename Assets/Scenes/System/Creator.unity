@@ -1250,47 +1250,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114974602925868332, guid: 6750badb58f8049d78d7995f03d3197b,
-        type: 2}
-      propertyPath: label_mode
-      value: 
-      objectReference: {fileID: 892820845}
-    - target: {fileID: 114769954072236124, guid: 6750badb58f8049d78d7995f03d3197b,
-        type: 2}
-      propertyPath: gizmoCamera
-      value: 
-      objectReference: {fileID: 1896986506}
-    - target: {fileID: 114918222457540282, guid: 6750badb58f8049d78d7995f03d3197b,
-        type: 2}
-      propertyPath: gizmoCamera
-      value: 
-      objectReference: {fileID: 1896986506}
-    - target: {fileID: 114503161862835512, guid: 6750badb58f8049d78d7995f03d3197b,
-        type: 2}
-      propertyPath: gizmoCamera
-      value: 
-      objectReference: {fileID: 1896986506}
-    - target: {fileID: 114316046355184664, guid: 6750badb58f8049d78d7995f03d3197b,
-        type: 2}
-      propertyPath: gizmoCamera
-      value: 
-      objectReference: {fileID: 1896986506}
-    - target: {fileID: 114978426127183884, guid: 6750badb58f8049d78d7995f03d3197b,
-        type: 2}
-      propertyPath: gizmoCamera
-      value: 
-      objectReference: {fileID: 1896986506}
-    - target: {fileID: 114761233449369288, guid: 6750badb58f8049d78d7995f03d3197b,
-        type: 2}
-      propertyPath: gizmoCamera
-      value: 
-      objectReference: {fileID: 1896986506}
-    - target: {fileID: 114684118703565050, guid: 6750badb58f8049d78d7995f03d3197b,
-        type: 2}
-      propertyPath: gizmoCamera
-      value: 
-      objectReference: {fileID: 1896986506}
-    - target: {fileID: 114797126170888304, guid: 6750badb58f8049d78d7995f03d3197b,
+    - target: {fileID: 114770157966803190, guid: 6750badb58f8049d78d7995f03d3197b,
         type: 2}
       propertyPath: gizmoCamera
       value: 
@@ -1300,11 +1260,51 @@ Prefab:
       propertyPath: gizmoCamera
       value: 
       objectReference: {fileID: 1896986506}
-    - target: {fileID: 114770157966803190, guid: 6750badb58f8049d78d7995f03d3197b,
+    - target: {fileID: 114797126170888304, guid: 6750badb58f8049d78d7995f03d3197b,
         type: 2}
       propertyPath: gizmoCamera
       value: 
       objectReference: {fileID: 1896986506}
+    - target: {fileID: 114684118703565050, guid: 6750badb58f8049d78d7995f03d3197b,
+        type: 2}
+      propertyPath: gizmoCamera
+      value: 
+      objectReference: {fileID: 1896986506}
+    - target: {fileID: 114761233449369288, guid: 6750badb58f8049d78d7995f03d3197b,
+        type: 2}
+      propertyPath: gizmoCamera
+      value: 
+      objectReference: {fileID: 1896986506}
+    - target: {fileID: 114978426127183884, guid: 6750badb58f8049d78d7995f03d3197b,
+        type: 2}
+      propertyPath: gizmoCamera
+      value: 
+      objectReference: {fileID: 1896986506}
+    - target: {fileID: 114316046355184664, guid: 6750badb58f8049d78d7995f03d3197b,
+        type: 2}
+      propertyPath: gizmoCamera
+      value: 
+      objectReference: {fileID: 1896986506}
+    - target: {fileID: 114503161862835512, guid: 6750badb58f8049d78d7995f03d3197b,
+        type: 2}
+      propertyPath: gizmoCamera
+      value: 
+      objectReference: {fileID: 1896986506}
+    - target: {fileID: 114918222457540282, guid: 6750badb58f8049d78d7995f03d3197b,
+        type: 2}
+      propertyPath: gizmoCamera
+      value: 
+      objectReference: {fileID: 1896986506}
+    - target: {fileID: 114769954072236124, guid: 6750badb58f8049d78d7995f03d3197b,
+        type: 2}
+      propertyPath: gizmoCamera
+      value: 
+      objectReference: {fileID: 1896986506}
+    - target: {fileID: 114974602925868332, guid: 6750badb58f8049d78d7995f03d3197b,
+        type: 2}
+      propertyPath: label_mode
+      value: 
+      objectReference: {fileID: 892820845}
     - target: {fileID: 114974602925868332, guid: 6750badb58f8049d78d7995f03d3197b,
         type: 2}
       propertyPath: label_target

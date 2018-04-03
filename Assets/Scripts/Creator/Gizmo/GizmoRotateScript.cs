@@ -19,6 +19,7 @@ public class GizmoRotateScript : MonoBehaviour {
     ///     Rotation speed scalar
     /// </summary>
     public float rotationSpeed = 75.0f;
+    public float scaleFactor = 0.3f;
 
     /// <summary>
     ///     X torus of gizmo
@@ -59,6 +60,7 @@ public class GizmoRotateScript : MonoBehaviour {
         // Set the same position for the target and the gizmo
         transform.position = rotateTarget.transform.position;
         transform.rotation = rotateTarget.transform.rotation;
+        transform.localScale = rotateTarget.transform.localScale * scaleFactor;
     }
 
     /// <summary>
