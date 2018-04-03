@@ -719,6 +719,7 @@ MonoBehaviour:
   fastMovementSpeed: 20
   freeLookSensitivityX: 2
   freeLookSensitivityY: 3
+  yrange: {x: -85, y: 85}
   zoomSensitivity: 10
   fastZoomSensitivity: 20
 --- !u!114 &517792909

@@ -2474,7 +2474,7 @@ MonoBehaviour:
   gizmoScale: {fileID: 4030607702826310}
   gizmoScaleScript: {fileID: 114982521530160230}
   target: {fileID: 0}
-  mode: 1
+  mode: 0
 --- !u!114 &114978426127183884
 MonoBehaviour:
   m_ObjectHideFlags: 1

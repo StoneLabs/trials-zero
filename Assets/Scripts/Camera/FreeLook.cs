@@ -32,6 +32,14 @@ public class FreeLook : MonoBehaviour
 	[LabelOverride("Sensitivity Y-Axis")]
     public float freeLookSensitivityY = 3f;
 
+	[LabelOverride("Camera rotation range (Horizontal)")]
+    public Vector2 yrange;
+    [Space(13)]
+    
+	//[LabelOverride("Camera rotation range (Y)")]
+    //public Vector2 yrange;
+    //[Space(15)]
+
     // Amount to zoom the camera when using the mouse wheel.
 	[LabelOverride("Sensitivity Zoom")]
     public float zoomSensitivity = 10f;
@@ -92,6 +100,8 @@ public class FreeLook : MonoBehaviour
         {
             float newRotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * freeLookSensitivityX;
             float newRotationY = transform.localEulerAngles.x - Input.GetAxis("Mouse Y") * freeLookSensitivityY;
+            Debug.Log(newRotationY);
+            newRotationY = ClampAngle(newRotationY, yrange.x, yrange.y);
             transform.localEulerAngles = new Vector3(newRotationY, newRotationX, 0f);
         }
 
@@ -110,6 +120,14 @@ public class FreeLook : MonoBehaviour
         {
             StopLooking();
         }
+    }
+
+    // accepts e.g. -80, 80
+    float ClampAngle(float angle, float from, float to)
+    {
+        if (angle < 0f) angle = 360 + angle;
+        if (angle > 180f) return Mathf.Max(angle, 360+from);
+        return Mathf.Min(angle, to);
     }
 
     // Enable free looking.
