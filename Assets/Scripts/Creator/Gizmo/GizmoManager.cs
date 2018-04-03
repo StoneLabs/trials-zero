@@ -81,7 +81,7 @@ public class GizmoManager : MonoBehaviour
 		}
 	}
 
-	void SetGizmo(Transform newTarget = null)
+	public void SetGizmo(Transform newTarget = null)
 	{
 		target = newTarget ?? target;
 
