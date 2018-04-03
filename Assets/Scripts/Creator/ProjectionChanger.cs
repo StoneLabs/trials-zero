@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ProjectionChanger : MonoBehaviour
 {
 	[LabelOverride("Camera")]
-	public Camera camera;
+	public Camera[] cameras;
 
 	[LabelOverride("Key")]
 	public KeyCode swapkey = KeyCode.M;
@@ -22,7 +22,7 @@ public class ProjectionChanger : MonoBehaviour
 	[LabelOverride("Label Text (Orthographic)")]
 	public string text_orth = "";
 
-	private bool perspective = false;
+	private bool perspective = true;
 	
 	void Update()
 	{
@@ -30,7 +30,8 @@ public class ProjectionChanger : MonoBehaviour
 		{
 			perspective = !perspective;
 			label.text = perspective ? text_pers : text_orth;
-			camera.orthographic = !perspective;
+			foreach (Camera camera in cameras)
+				camera.orthographic = !perspective;
 		}
 	}
 }
