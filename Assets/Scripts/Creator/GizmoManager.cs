@@ -104,7 +104,7 @@ public class GizmoManager : MonoBehaviour
 		label_mode.text = mode == GizmoMode.Translate ? label_mode_translation
 						: mode == GizmoMode.Rotate ? label_mode_rotation
 						: label_mode_scale;
-		label_target.text = target.gameObject.name ?? "NONE";
+		label_target.text = target != null ? target.gameObject.name : "NONE";
 	}
 
 	public static GizmoMode NextGizmo(GizmoMode value)
