@@ -100,7 +100,6 @@ public class FreeLook : MonoBehaviour
         {
             float newRotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * freeLookSensitivityX;
             float newRotationY = transform.localEulerAngles.x - Input.GetAxis("Mouse Y") * freeLookSensitivityY;
-            Debug.Log(newRotationY);
             newRotationY = ClampAngle(newRotationY, yrange.x, yrange.y);
             transform.localEulerAngles = new Vector3(newRotationY, newRotationX, 0f);
         }
