@@ -20,6 +20,9 @@ public class CreatorTreeManager : MonoBehaviour
 	[LabelOverride("Gizmo Manager")]
     public GizmoManager gizmoManager;
 
+	[LabelOverride("Item Icons")]
+    public Sprite itemicon;
+
     public static bool IsPrefab(Transform This)
     {
         if (Application.isEditor && !Application.isPlaying)
@@ -119,6 +122,7 @@ public class CreatorTreeManager : MonoBehaviour
                 Destroy(go);
             }
         }
+        gizmoManager.ResetGizmo();
     }
 
     /// <summary>
@@ -138,7 +142,7 @@ public class CreatorTreeManager : MonoBehaviour
 
             //Load icon from resources
             Image icon = e.ItemPresenter.GetComponentsInChildren<Image>()[4];
-            icon.sprite = Resources.Load<Sprite>("cube");
+            icon.sprite = itemicon;
 
             //And specify whether data item has children (to display expander arrow if needed)
             
@@ -227,17 +231,6 @@ public class CreatorTreeManager : MonoBehaviour
     private void OnItemEndDrag(object sender, ItemArgs e)
     {            
     }
-
-
-    private int m_counter = 1;
-    public void AddItem()
-    {
-        GameObject go = new GameObject();
-        go.name = "GameObject " + m_counter;
-        m_counter++;
-        TreeView.Add(go);
-    }
-
 #endregion
 
 }

@@ -353,6 +353,7 @@ MonoBehaviour:
   TreeView: {fileID: 108245755}
   ObjectContainer: {fileID: 1941611273}
   gizmoManager: {fileID: 2091250075}
+  itemicon: {fileID: 21300000, guid: ee06577ec25330c4db73ae23b17c90c3, type: 3}
 --- !u!1 &254911908
 GameObject:
   m_ObjectHideFlags: 0

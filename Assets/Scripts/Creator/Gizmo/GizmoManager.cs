@@ -81,6 +81,19 @@ public class GizmoManager : MonoBehaviour
 		}
 	}
 
+	public void ResetGizmo()
+	{
+		gizmoTranslateScript.translateTarget = null;
+		gizmoRotationScript.rotateTarget = null;
+		gizmoScaleScript.scaleTarget = null;
+
+		gizmoTranslate.gameObject.SetActive(false);
+		gizmoRotation.gameObject.SetActive(false);
+		gizmoScale.gameObject.SetActive(false);
+		
+		label_target.text = "NONE";
+	}
+
 	public void SetGizmo(Transform newTarget = null)
 	{
 		target = newTarget ?? target;
