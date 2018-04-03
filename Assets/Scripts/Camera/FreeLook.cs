@@ -24,16 +24,20 @@ public class FreeLook : MonoBehaviour
 	[LabelOverride("Movement Speed (Shift)")]
     public float fastMovementSpeed = 100f;
 
+    // Sensitivity for free look. (X-Axis)
+	[LabelOverride("Sensitivity X-Axis")]
+    public float freeLookSensitivityX = 3f;
+
     // Sensitivity for free look.
-	[LabelOverride("Sensitivity")]
-    public float freeLookSensitivity = 3f;
+	[LabelOverride("Sensitivity Y-Axis")]
+    public float freeLookSensitivityY = 3f;
 
     // Amount to zoom the camera when using the mouse wheel.
-	[LabelOverride("Sensitivity (Zoom)")]
+	[LabelOverride("Sensitivity Zoom")]
     public float zoomSensitivity = 10f;
 
     // Amount to zoom the camera when using the mouse wheel (fast mode).
-	[LabelOverride("Sensitivity (Fast Zoom)")]
+	[LabelOverride("Sensitivity Zoom (Shift)")]
     public float fastZoomSensitivity = 50f;
 
     // Set to true when free looking (on right mouse button).
@@ -86,8 +90,8 @@ public class FreeLook : MonoBehaviour
 
         if (looking)
         {
-            float newRotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * freeLookSensitivity;
-            float newRotationY = transform.localEulerAngles.x - Input.GetAxis("Mouse Y") * freeLookSensitivity;
+            float newRotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * freeLookSensitivityX;
+            float newRotationY = transform.localEulerAngles.x - Input.GetAxis("Mouse Y") * freeLookSensitivityY;
             transform.localEulerAngles = new Vector3(newRotationY, newRotationX, 0f);
         }
 
