@@ -1833,14 +1833,14 @@ namespace Battlehub.UIControls
 
         public override void OnSelect(BaseEventData eventData)
         {
-            Debug.Log("OnSelect");
+            //Debug.Log("OnSelect");
             base.OnSelect(eventData);
             IsSelected = true;
         }
 
         public override void OnDeselect(BaseEventData eventData)
         {
-            Debug.Log("OnDeselect");
+            //Debug.Log("OnDeselect");
             base.OnDeselect(eventData);
             IsSelected = false;
         }
