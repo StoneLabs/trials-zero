@@ -44,6 +44,11 @@ public class CreatorTreeManager : MonoBehaviour
         TreeView.ItemBeginDrop += OnItemBeginDrop;
         TreeView.ItemEndDrag += OnItemEndDrag;
         
+        ReloadTree();
+    }
+
+    public void ReloadTree()
+    {
         List<GameObject> children = new List<GameObject>();
         foreach (Transform child in ObjectContainer)
         {
