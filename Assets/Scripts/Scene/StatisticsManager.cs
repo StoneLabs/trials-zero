@@ -28,9 +28,9 @@ public class StatisticsManager : MonoBehaviour
     void OnGUI()
     {
         GUI.color = Color.black;
-        GUI.Label(new Rect(10, 300, 100, 20), Respawns.ToString());
-        GUI.Label(new Rect(10, 320, 100, 20), StartTime.ToString());
-        GUI.Label(new Rect(10, 340, 100, 20), (FinishTime ?? -1.0f).ToString());
-        GUI.Label(new Rect(10, 360, 100, 20), CurrentTime.ToString());
+        GUI.Label(new Rect(10, 200, 100, 20), Respawns.ToString());
+        GUI.Label(new Rect(10, 220, 100, 20), StartTime.ToString());
+        GUI.Label(new Rect(10, 240, 100, 20), (FinishTime ?? -1.0f).ToString());
+        GUI.Label(new Rect(10, 260, 100, 20), CurrentTime.ToString());
     }
 }

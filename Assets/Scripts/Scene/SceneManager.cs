@@ -22,13 +22,13 @@ public class SceneManager : MonoBehaviour
 	[LabelOverride("Spawn Point")]
 	public Transform spawnPoint;
 	[LabelOverride("Statistics Manager")]
-	public StatisticsManager statsticsManager;
+	public StatisticsManager statisticsManager;
 	// Wether the player can currently respawn
 	private bool canRespawn = true;
 
 	void Start()
 	{
-		statsticsManager.HandleStart();
+		statisticsManager.HandleStart();
 	}
 
 	public void Respawn()
@@ -46,7 +46,7 @@ public class SceneManager : MonoBehaviour
 		// Destroy the old bike after the references are set to prevent nullpointer exceptions
 		Destroy(oldBike.gameObject);
 
-		statsticsManager.HandleRespawn();
+		statisticsManager.HandleRespawn();
 	}
 
 	public void Finish()
@@ -54,6 +54,6 @@ public class SceneManager : MonoBehaviour
 		Debug.Log("FINISHED");
 		canRespawn = false;
 		bikeManager.DisableDriver();
-		statsticsManager.HandleFinish();
+		statisticsManager.HandleFinish();
 	}
 }

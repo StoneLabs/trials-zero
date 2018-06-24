@@ -60,6 +60,7 @@ public class BikeManager : MonoBehaviour
 	// Public function to kill the driver
 	public void Die()
 	{
+		if (!this.alive) return;
 		DisableDriver();
 
 		// Change the driver color to red
@@ -73,6 +74,7 @@ public class BikeManager : MonoBehaviour
 	// Public function to distable all driver input and impose a random force parallel to the normal of the bikes plane
 	public void DisableDriver()
 	{
+		if (!this.alive) return;
 		this.alive = false;
 
 		//Apply impulse in range
