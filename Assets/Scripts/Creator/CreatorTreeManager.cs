@@ -12,10 +12,10 @@ using Battlehub.UIControls;
 public class CreatorTreeManager : MonoBehaviour
 {
 	[LabelOverride("Virtualized Tree View")]
-    public VirtualizingTreeView TreeView;
+    public VirtualizingTreeView treeView;
 
 	[LabelOverride("Root Object")]
-    public Transform ObjectContainer;
+    public Transform objectContainer;
 
 	[LabelOverride("Gizmo Manager")]
     public GizmoManager gizmoManager;
@@ -34,40 +34,41 @@ public class CreatorTreeManager : MonoBehaviour
 
     private void Start()
     {
-        TreeView.ItemDataBinding += OnItemDataBinding;
-        TreeView.SelectionChanged += OnSelectionChanged;
-        TreeView.ItemsRemoved += OnItemsRemoved;
-        TreeView.ItemExpanding += OnItemExpanding;
-        TreeView.ItemBeginDrag += OnItemBeginDrag;
+        treeView.ItemDataBinding += OnItemDataBinding;
+        treeView.SelectionChanged += OnSelectionChanged;
+        treeView.ItemsRemoved += OnItemsRemoved;
+        treeView.ItemExpanding += OnItemExpanding;
+        treeView.ItemBeginDrag += OnItemBeginDrag;
 
-        TreeView.ItemDrop += OnItemDrop;
-        TreeView.ItemBeginDrop += OnItemBeginDrop;
-        TreeView.ItemEndDrag += OnItemEndDrag;
+        treeView.ItemDrop += OnItemDrop;
+        treeView.ItemBeginDrop += OnItemBeginDrop;
+        treeView.ItemEndDrag += OnItemEndDrag;
         
         ReloadTree();
     }
 
     public void ReloadTree()
     {
+        treeView.Items = new object[] {};
         List<GameObject> children = new List<GameObject>();
-        foreach (Transform child in ObjectContainer)
+        foreach (Transform child in objectContainer)
         {
             children.Add(child.gameObject);
         }
 
-        TreeView.Items = children;
+        treeView.Items = children;
     }
 
     private void OnDestroy()
     {
-        TreeView.ItemDataBinding -= OnItemDataBinding;
-        TreeView.SelectionChanged -= OnSelectionChanged;
-        TreeView.ItemsRemoved -= OnItemsRemoved;
-        TreeView.ItemExpanding -= OnItemExpanding;
-        TreeView.ItemBeginDrag -= OnItemBeginDrag;
-        TreeView.ItemBeginDrop -= OnItemBeginDrop;
-        TreeView.ItemDrop -= OnItemDrop;
-        TreeView.ItemEndDrag -= OnItemEndDrag;
+        treeView.ItemDataBinding -= OnItemDataBinding;
+        treeView.SelectionChanged -= OnSelectionChanged;
+        treeView.ItemsRemoved -= OnItemsRemoved;
+        treeView.ItemExpanding -= OnItemExpanding;
+        treeView.ItemBeginDrag -= OnItemBeginDrag;
+        treeView.ItemBeginDrop -= OnItemBeginDrop;
+        treeView.ItemDrop -= OnItemDrop;
+        treeView.ItemEndDrag -= OnItemEndDrag;
     }
 
 #region Event Handler
