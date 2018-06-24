@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System;
 
 // Class to manage the visualization of all statistical information
-public class StatisticsUI : MonoBehaviour 
+public class StatisticsUI : GenericUI 
 {
     public SceneManager sceneManager;
 
