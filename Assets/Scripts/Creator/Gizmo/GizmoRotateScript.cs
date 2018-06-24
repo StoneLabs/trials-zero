@@ -60,7 +60,6 @@ public class GizmoRotateScript : MonoBehaviour {
         // Set the same position for the target and the gizmo
         transform.position = rotateTarget.transform.position;
         transform.rotation = rotateTarget.transform.rotation;
-        transform.localScale = rotateTarget.transform.localScale * scaleFactor;
     }
 
     /// <summary>

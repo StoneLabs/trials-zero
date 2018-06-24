@@ -56,7 +56,6 @@ public class GizmoTranslateScript : MonoBehaviour {
         // Set the same position for the target and the gizmo
         transform.position = translateTarget.transform.position;
         transform.rotation = translateTarget.transform.rotation;
-        transform.localScale = translateTarget.transform.localScale * scaleFactor;
     }
 
     /// <summary>

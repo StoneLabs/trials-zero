@@ -86,13 +86,23 @@ public class GizmoScaleScript : MonoBehaviour {
         // Set the same position for the target and the gizmo
         transform.position = scaleTarget.transform.position;
         transform.rotation = scaleTarget.transform.rotation;
-        transform.localScale = scaleTarget.transform.localScale * scaleFactor;
     }
 
     /// <summary>
-    ///     Once per frame
-    /// </summary>
-    public void Update() {
+    ///     The math in here is complete bullshit. Dont try to fix it as it works for now.
+    ///     TODO: Rewrite, this is complete garbage...
+    // </summary>
+    public void Update() 
+    {
+
+        // Calculate angle between arrow and camera rotation to flip movement while moving from angles > 180
+        float angleXY = Camera.main.transform.eulerAngles.y - xCylinder.transform.eulerAngles.y;
+        float factorXY = Mathf.Sin((Mathf.PI / 180) * -angleXY); // factor for x axis (regarding y rotation)
+
+        float angleZY = zCylinder.transform.eulerAngles.y - Camera.main.transform.eulerAngles.y;
+        float factorZY = Mathf.Sin((Mathf.PI / 180) * -angleZY); // factor for z axis (regarding y rotation)
+
+        //No correction for Y axis in necessary since we cant tilt the camera on the Z axis.
 
         // Store the previous local scale of the gizmo
         if(Input.GetMouseButtonDown(0) && detectors[3].pressing) {
@@ -111,7 +121,7 @@ public class GizmoScaleScript : MonoBehaviour {
                         {
                             // Scale along the X axis
                             float delta = Input.GetAxis("Mouse X") * (Time.deltaTime);
-                            delta *= scaleSpeed;
+                            delta *= scaleSpeed * factorXY;
 
                             if ((scaleTarget.transform.localScale.x - delta) <= 0.01f) return;
                             scaleTarget.transform.localScale += new Vector3(-delta, 0.0f, 0.0f);
@@ -123,7 +133,7 @@ public class GizmoScaleScript : MonoBehaviour {
                             xCylinder.GetComponent<MeshFilter>().mesh.RecalculateBounds();
                             float lengthAfter = xCylinder.GetComponent<Renderer>().bounds.size.x;
 
-                            xCube.transform.position += new Vector3(lengthAfter - lengthBefore, 0.0f, 0.0f);
+                            xCube.transform.position = new Vector3(lengthAfter, 0.0f, 0.0f);
 
                             xCylinder.transform.position = new Vector3(
                                     lengthAfter / 2.0f,
@@ -152,7 +162,7 @@ public class GizmoScaleScript : MonoBehaviour {
                             yCylinder.GetComponent<MeshFilter>().mesh.RecalculateBounds();
                             float lengthAfter = yCylinder.GetComponent<Renderer>().bounds.size.y;
 
-                            yCube.transform.position += new Vector3(0.0f, lengthAfter - lengthBefore, 0.0f);
+                            yCube.transform.position = new Vector3(0.0f, lengthAfter, 0.0f);
 
                             yCylinder.transform.position = new Vector3(
                                     yCylinder.transform.position.x,
@@ -169,7 +179,7 @@ public class GizmoScaleScript : MonoBehaviour {
                         {
                             // Scale along the Z axis
                             float delta = Input.GetAxis("Mouse X") * (Time.deltaTime);
-                            delta *= scaleSpeed;
+                            delta *= scaleSpeed * factorZY;
 
                             if ((scaleTarget.transform.localScale.z + delta) <= 0.01f) return;
                             scaleTarget.transform.localScale += new Vector3(0.0f, 0.0f, delta);
@@ -181,7 +191,7 @@ public class GizmoScaleScript : MonoBehaviour {
                             zCylinder.GetComponent<MeshFilter>().mesh.RecalculateBounds();
                             float lengthAfter = zCylinder.GetComponent<Renderer>().bounds.size.z;
 
-                            zCube.transform.position += new Vector3(0.0f, 0.0f, lengthAfter - lengthBefore);
+                            zCube.transform.position = new Vector3(0.0f, 0.0f, lengthAfter);
 
                             zCylinder.transform.position = new Vector3(
                                     zCylinder.transform.position.x,
