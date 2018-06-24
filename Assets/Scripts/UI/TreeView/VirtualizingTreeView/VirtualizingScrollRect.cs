@@ -308,6 +308,11 @@ namespace Battlehub.UIControls
 
         private void OnVirtualContentTransformChaged()
         {
+            if (m_containers.Count == 0)
+            {
+                DataBind(Index);
+                UpdateContentSize();
+            }
             if (m_mode == VirtualizingMode.Horizontal)
             {
                 content.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, m_virtualContent.rect.height);
