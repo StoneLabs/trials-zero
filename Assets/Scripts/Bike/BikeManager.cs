@@ -60,13 +60,22 @@ public class BikeManager : MonoBehaviour
 	// Public function to kill the driver
 	public void Die()
 	{
-		this.alive = false;
-			
+		if (!this.alive) return;
+		DisableDriver();
+
 		// Change the driver color to red
 		foreach (MeshRenderer renderer in riderParts)
 		{
 			renderer.materials[0].color = Color.red;
 		}
+
+	}
+
+	// Public function to distable all driver input and impose a random force parallel to the normal of the bikes plane
+	public void DisableDriver()
+	{
+		if (!this.alive) return;
+		this.alive = false;
 
 		//Apply impulse in range
 		float impulseScale = Random.Range(impulseRange.x, impulseRange.y);

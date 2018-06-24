@@ -15,6 +15,12 @@ public class CheckpointManager : MonoBehaviour
 	// The transform that will be pass to the scene manager as a spawn point
 	public Transform spawnPoint;
 
+	// Wether this checkpoint functions as a finish line
+	public bool isFinishLine = false;
+
+	// Will become true once the driver enters the trigger
+	private bool triggered = false;
+
 	public void Start()
 	{
 		if (sceneManager == null)
@@ -24,14 +30,19 @@ public class CheckpointManager : MonoBehaviour
 	
 	void OnTriggerEnter(Collider other)
 	{
+		if (triggered) return; // Dont finish twice
 		if (other.attachedRigidbody != null)
 		{
 			// Only trigger if caused by the bike
 			if (other.transform.IsChildOf(sceneManager.bike))
 			{
+				triggered = true;
 				redLight.enabled = false;
 				greenLight.enabled = true;
-				sceneManager.spawnPoint = spawnPoint;
+				if (isFinishLine)
+					sceneManager.Finish();
+				else
+					sceneManager.spawnPoint = spawnPoint;
 			}
 		}
 	}
